@@ -1,0 +1,347 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> start
+Rule 1     start -> statement
+Rule 2     statement -> NUMBER
+Rule 3     statement -> NIL
+Rule 4     statement -> STRING
+Rule 5     statement -> NAME
+Rule 6     statement -> QUOTE statement
+Rule 7     statement -> COMMA statement
+Rule 8     statement -> expression
+Rule 9     expression -> list
+Rule 10    list -> LPAREN element RPAREN
+Rule 11    element -> element statement
+Rule 12    element -> statement
+
+Terminals, with rules where they appear
+
+COMMA                : 7
+LPAREN               : 10
+NAME                 : 5
+NIL                  : 3
+NUMBER               : 2
+QUOTE                : 6
+RPAREN               : 10
+STRING               : 4
+error                : 
+
+Nonterminals, with rules where they appear
+
+element              : 10 11
+expression           : 8
+list                 : 9
+start                : 0
+statement            : 1 6 7 11 12
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . start
+    (1) start -> . statement
+    (2) statement -> . NUMBER
+    (3) statement -> . NIL
+    (4) statement -> . STRING
+    (5) statement -> . NAME
+    (6) statement -> . QUOTE statement
+    (7) statement -> . COMMA statement
+    (8) statement -> . expression
+    (9) expression -> . list
+    (10) list -> . LPAREN element RPAREN
+
+    NUMBER          shift and go to state 3
+    NIL             shift and go to state 4
+    STRING          shift and go to state 5
+    NAME            shift and go to state 6
+    QUOTE           shift and go to state 7
+    COMMA           shift and go to state 8
+    LPAREN          shift and go to state 11
+
+    start                          shift and go to state 1
+    statement                      shift and go to state 2
+    expression                     shift and go to state 9
+    list                           shift and go to state 10
+
+state 1
+
+    (0) S' -> start .
+
+
+
+state 2
+
+    (1) start -> statement .
+
+    $end            reduce using rule 1 (start -> statement .)
+
+
+state 3
+
+    (2) statement -> NUMBER .
+
+    $end            reduce using rule 2 (statement -> NUMBER .)
+    RPAREN          reduce using rule 2 (statement -> NUMBER .)
+    NUMBER          reduce using rule 2 (statement -> NUMBER .)
+    NIL             reduce using rule 2 (statement -> NUMBER .)
+    STRING          reduce using rule 2 (statement -> NUMBER .)
+    NAME            reduce using rule 2 (statement -> NUMBER .)
+    QUOTE           reduce using rule 2 (statement -> NUMBER .)
+    COMMA           reduce using rule 2 (statement -> NUMBER .)
+    LPAREN          reduce using rule 2 (statement -> NUMBER .)
+
+
+state 4
+
+    (3) statement -> NIL .
+
+    $end            reduce using rule 3 (statement -> NIL .)
+    RPAREN          reduce using rule 3 (statement -> NIL .)
+    NUMBER          reduce using rule 3 (statement -> NIL .)
+    NIL             reduce using rule 3 (statement -> NIL .)
+    STRING          reduce using rule 3 (statement -> NIL .)
+    NAME            reduce using rule 3 (statement -> NIL .)
+    QUOTE           reduce using rule 3 (statement -> NIL .)
+    COMMA           reduce using rule 3 (statement -> NIL .)
+    LPAREN          reduce using rule 3 (statement -> NIL .)
+
+
+state 5
+
+    (4) statement -> STRING .
+
+    $end            reduce using rule 4 (statement -> STRING .)
+    RPAREN          reduce using rule 4 (statement -> STRING .)
+    NUMBER          reduce using rule 4 (statement -> STRING .)
+    NIL             reduce using rule 4 (statement -> STRING .)
+    STRING          reduce using rule 4 (statement -> STRING .)
+    NAME            reduce using rule 4 (statement -> STRING .)
+    QUOTE           reduce using rule 4 (statement -> STRING .)
+    COMMA           reduce using rule 4 (statement -> STRING .)
+    LPAREN          reduce using rule 4 (statement -> STRING .)
+
+
+state 6
+
+    (5) statement -> NAME .
+
+    $end            reduce using rule 5 (statement -> NAME .)
+    RPAREN          reduce using rule 5 (statement -> NAME .)
+    NUMBER          reduce using rule 5 (statement -> NAME .)
+    NIL             reduce using rule 5 (statement -> NAME .)
+    STRING          reduce using rule 5 (statement -> NAME .)
+    NAME            reduce using rule 5 (statement -> NAME .)
+    QUOTE           reduce using rule 5 (statement -> NAME .)
+    COMMA           reduce using rule 5 (statement -> NAME .)
+    LPAREN          reduce using rule 5 (statement -> NAME .)
+
+
+state 7
+
+    (6) statement -> QUOTE . statement
+    (2) statement -> . NUMBER
+    (3) statement -> . NIL
+    (4) statement -> . STRING
+    (5) statement -> . NAME
+    (6) statement -> . QUOTE statement
+    (7) statement -> . COMMA statement
+    (8) statement -> . expression
+    (9) expression -> . list
+    (10) list -> . LPAREN element RPAREN
+
+    NUMBER          shift and go to state 3
+    NIL             shift and go to state 4
+    STRING          shift and go to state 5
+    NAME            shift and go to state 6
+    QUOTE           shift and go to state 7
+    COMMA           shift and go to state 8
+    LPAREN          shift and go to state 11
+
+    statement                      shift and go to state 12
+    expression                     shift and go to state 9
+    list                           shift and go to state 10
+
+state 8
+
+    (7) statement -> COMMA . statement
+    (2) statement -> . NUMBER
+    (3) statement -> . NIL
+    (4) statement -> . STRING
+    (5) statement -> . NAME
+    (6) statement -> . QUOTE statement
+    (7) statement -> . COMMA statement
+    (8) statement -> . expression
+    (9) expression -> . list
+    (10) list -> . LPAREN element RPAREN
+
+    NUMBER          shift and go to state 3
+    NIL             shift and go to state 4
+    STRING          shift and go to state 5
+    NAME            shift and go to state 6
+    QUOTE           shift and go to state 7
+    COMMA           shift and go to state 8
+    LPAREN          shift and go to state 11
+
+    statement                      shift and go to state 13
+    expression                     shift and go to state 9
+    list                           shift and go to state 10
+
+state 9
+
+    (8) statement -> expression .
+
+    $end            reduce using rule 8 (statement -> expression .)
+    RPAREN          reduce using rule 8 (statement -> expression .)
+    NUMBER          reduce using rule 8 (statement -> expression .)
+    NIL             reduce using rule 8 (statement -> expression .)
+    STRING          reduce using rule 8 (statement -> expression .)
+    NAME            reduce using rule 8 (statement -> expression .)
+    QUOTE           reduce using rule 8 (statement -> expression .)
+    COMMA           reduce using rule 8 (statement -> expression .)
+    LPAREN          reduce using rule 8 (statement -> expression .)
+
+
+state 10
+
+    (9) expression -> list .
+
+    $end            reduce using rule 9 (expression -> list .)
+    RPAREN          reduce using rule 9 (expression -> list .)
+    NUMBER          reduce using rule 9 (expression -> list .)
+    NIL             reduce using rule 9 (expression -> list .)
+    STRING          reduce using rule 9 (expression -> list .)
+    NAME            reduce using rule 9 (expression -> list .)
+    QUOTE           reduce using rule 9 (expression -> list .)
+    COMMA           reduce using rule 9 (expression -> list .)
+    LPAREN          reduce using rule 9 (expression -> list .)
+
+
+state 11
+
+    (10) list -> LPAREN . element RPAREN
+    (11) element -> . element statement
+    (12) element -> . statement
+    (2) statement -> . NUMBER
+    (3) statement -> . NIL
+    (4) statement -> . STRING
+    (5) statement -> . NAME
+    (6) statement -> . QUOTE statement
+    (7) statement -> . COMMA statement
+    (8) statement -> . expression
+    (9) expression -> . list
+    (10) list -> . LPAREN element RPAREN
+
+    NUMBER          shift and go to state 3
+    NIL             shift and go to state 4
+    STRING          shift and go to state 5
+    NAME            shift and go to state 6
+    QUOTE           shift and go to state 7
+    COMMA           shift and go to state 8
+    LPAREN          shift and go to state 11
+
+    element                        shift and go to state 14
+    statement                      shift and go to state 15
+    expression                     shift and go to state 9
+    list                           shift and go to state 10
+
+state 12
+
+    (6) statement -> QUOTE statement .
+
+    $end            reduce using rule 6 (statement -> QUOTE statement .)
+    RPAREN          reduce using rule 6 (statement -> QUOTE statement .)
+    NUMBER          reduce using rule 6 (statement -> QUOTE statement .)
+    NIL             reduce using rule 6 (statement -> QUOTE statement .)
+    STRING          reduce using rule 6 (statement -> QUOTE statement .)
+    NAME            reduce using rule 6 (statement -> QUOTE statement .)
+    QUOTE           reduce using rule 6 (statement -> QUOTE statement .)
+    COMMA           reduce using rule 6 (statement -> QUOTE statement .)
+    LPAREN          reduce using rule 6 (statement -> QUOTE statement .)
+
+
+state 13
+
+    (7) statement -> COMMA statement .
+
+    $end            reduce using rule 7 (statement -> COMMA statement .)
+    RPAREN          reduce using rule 7 (statement -> COMMA statement .)
+    NUMBER          reduce using rule 7 (statement -> COMMA statement .)
+    NIL             reduce using rule 7 (statement -> COMMA statement .)
+    STRING          reduce using rule 7 (statement -> COMMA statement .)
+    NAME            reduce using rule 7 (statement -> COMMA statement .)
+    QUOTE           reduce using rule 7 (statement -> COMMA statement .)
+    COMMA           reduce using rule 7 (statement -> COMMA statement .)
+    LPAREN          reduce using rule 7 (statement -> COMMA statement .)
+
+
+state 14
+
+    (10) list -> LPAREN element . RPAREN
+    (11) element -> element . statement
+    (2) statement -> . NUMBER
+    (3) statement -> . NIL
+    (4) statement -> . STRING
+    (5) statement -> . NAME
+    (6) statement -> . QUOTE statement
+    (7) statement -> . COMMA statement
+    (8) statement -> . expression
+    (9) expression -> . list
+    (10) list -> . LPAREN element RPAREN
+
+    RPAREN          shift and go to state 16
+    NUMBER          shift and go to state 3
+    NIL             shift and go to state 4
+    STRING          shift and go to state 5
+    NAME            shift and go to state 6
+    QUOTE           shift and go to state 7
+    COMMA           shift and go to state 8
+    LPAREN          shift and go to state 11
+
+    statement                      shift and go to state 17
+    expression                     shift and go to state 9
+    list                           shift and go to state 10
+
+state 15
+
+    (12) element -> statement .
+
+    RPAREN          reduce using rule 12 (element -> statement .)
+    NUMBER          reduce using rule 12 (element -> statement .)
+    NIL             reduce using rule 12 (element -> statement .)
+    STRING          reduce using rule 12 (element -> statement .)
+    NAME            reduce using rule 12 (element -> statement .)
+    QUOTE           reduce using rule 12 (element -> statement .)
+    COMMA           reduce using rule 12 (element -> statement .)
+    LPAREN          reduce using rule 12 (element -> statement .)
+
+
+state 16
+
+    (10) list -> LPAREN element RPAREN .
+
+    $end            reduce using rule 10 (list -> LPAREN element RPAREN .)
+    RPAREN          reduce using rule 10 (list -> LPAREN element RPAREN .)
+    NUMBER          reduce using rule 10 (list -> LPAREN element RPAREN .)
+    NIL             reduce using rule 10 (list -> LPAREN element RPAREN .)
+    STRING          reduce using rule 10 (list -> LPAREN element RPAREN .)
+    NAME            reduce using rule 10 (list -> LPAREN element RPAREN .)
+    QUOTE           reduce using rule 10 (list -> LPAREN element RPAREN .)
+    COMMA           reduce using rule 10 (list -> LPAREN element RPAREN .)
+    LPAREN          reduce using rule 10 (list -> LPAREN element RPAREN .)
+
+
+state 17
+
+    (11) element -> element statement .
+
+    RPAREN          reduce using rule 11 (element -> element statement .)
+    NUMBER          reduce using rule 11 (element -> element statement .)
+    NIL             reduce using rule 11 (element -> element statement .)
+    STRING          reduce using rule 11 (element -> element statement .)
+    NAME            reduce using rule 11 (element -> element statement .)
+    QUOTE           reduce using rule 11 (element -> element statement .)
+    COMMA           reduce using rule 11 (element -> element statement .)
+    LPAREN          reduce using rule 11 (element -> element statement .)
+
