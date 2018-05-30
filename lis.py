@@ -10,8 +10,7 @@ University of Virginia.
 """
 
 __author__ = "Maxwell Patek"
-__copyright__ = "Copyright 2018, University of Virginia"
-__license__ = "MIT License"
+__license__ = "GNU LGPL v3.0"
 __version__ = "1.0"
 __maintainer__ = "Maxwell Patek"
 __email__ = "mtp4be@virginia.edu"
